@@ -76,7 +76,7 @@ newActivityData             <- activityData
 ## Strategy - replace NAs with the relevant (rounded off) interval mean values 
 ## computed without the NAs.
 newActivityData[missing,1]  <- round(meanSteps[as.numeric(names(meanSteps)) %in% 
-                                                                         newActivityData[missing,3]] + 0.5)
+                                                                         newActivityData[missing,3]])
 
 ## Compute steps per day and draw new histogram 
 newStepsPerDay              <- tapply(newActivityData$steps, newActivityData$date, sum)
@@ -89,7 +89,7 @@ message("Mean steps/day (NAs replaced) = ", round(mean(newStepsPerDay),2),
                                             "  Median steps/day (NAs replaced) = ", median(newStepsPerDay))
 ```
 
-The mean and median values are increased by 19 & 145 steps/day respectively. The increase in the 10 - 11k steps/day bin values in the histogram (compared to the previous version without the NA replacement by imputed values) reflects the additional mean values summing to give additional "mean" days (ie, in the 10-11k bin).
+The mean and median values are essentially unchanged, with decreases of 0.55 & 3 steps/day respectively. The increase in the 10 - 11k steps/day bin values in the histogram (compared to the previous version without the NA replacement by imputed values) reflects the additional mean values summing to give additional "mean" days (ie, in the 10-11k bin).
 
 ## Are there differences in activity patterns between weekdays and weekends?
 For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.  
