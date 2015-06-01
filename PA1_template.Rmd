@@ -1,5 +1,7 @@
 ---
 title: 'Reproducible Research: Peer Assessment 1'
+author: 'Ray Jones'
+date:  '14th June, 2015'
 output:
   html_document:
     keep_md: yes
